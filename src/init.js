@@ -1,5 +1,7 @@
 $(document).ready(function() {
   window.dancers = [];
+  var audio1 = document.getElementsByTagName("audio")[0];
+  var audio2 = document.getElementsByTagName("audio")[1];
 
   $(".addDancerButton").on("click", function(event) {
     /* This function sets up the click handlers for the create-dancer
@@ -29,17 +31,20 @@ $(document).ready(function() {
 
     window.dancers.push(dancer);
     $(".danceFloor").append(dancer.$node);
+    audio2.pause();
+    audio1.play();
+
   });
 
   $(".lineUpButton").on("click", function() {
     for (var i = 0; i < window.dancers.length; i++) {
       window.dancers[i].lineUp();
+      audio1.pause();
+      audio2.pause();
     }
-
   });
 
   $(".spreadOut").on("click", function() {
-    console.log("spreadOut is being called.")
     var dancersLength = window.dancers.length;
     for (var i = 0; i < dancersLength - 1; i++) {
       var dancerPrime = window.dancers[i];
@@ -52,7 +57,6 @@ $(document).ready(function() {
           var newLeft = $(".danceFloor").width() * Math.random();
           var newTop = $(".danceFloor").height() * Math.random() + 50;
           window.dancers[i].setPosition(newTop, newLeft);
-          console.log("I moved dancer: " + dancers[j])
         }
       }
       //console.log(dancers[i].left)
@@ -62,6 +66,8 @@ $(document).ready(function() {
       // console.log(new_to);
       // window.dancers[i].setPosition(new_to, newLeft);
     }
+    audio1.pause();
+    audio2.play();
   });
 
   // $('body').on("click", ".ceraDancer", function() {
