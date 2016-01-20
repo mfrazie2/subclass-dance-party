@@ -7,7 +7,8 @@ body{
   font-size: 18px;
 }
 .danceFloor {
-  height:100%;
+  height: 750px;
+  width: 1200px;
   background: linear-gradient(293deg, #00f41e, #0075c4, #1be7ff, #f42c04, #0c0f0a);
   background-size: 1000% 1000%;
 
@@ -32,25 +33,92 @@ body{
     100%{background-position:27% 0%}
   }
 
-
-
 body, a:link, a:visited, a:active{
   color: lightblue;
 }
 .title, .actionButton{
-  padding:5px 12px;
+  padding:10px 12px;
   float:right;
 }
 .topbar{
   height:32px;
+  padding:5px 5px;
   background-color: #555;
 }
 .title{
   background-color: #777;
 }
 .dancer{
-  border:10px solid red;
+  border:10px solid black;
   border-radius:10px;
-
   position:absolute;
+}
+
+/*
+  *Styling for the michael cera dancer to spin
+*/
+.ceraDancer {
+  position: absolute;
+}
+.spin {
+  -webkit-animation-name: spin;
+      -webkit-animation-duration: 2000ms;
+      -webkit-animation-iteration-count: infinite;
+      -webkit-animation-timing-function: linear;
+      -moz-animation-name: spin;
+      -moz-animation-duration: 40000ms;
+      -moz-animation-iteration-count: infinite;
+      -moz-animation-timing-function: linear;
+      -ms-animation-name: spin;
+      -ms-animation-duration: 40000ms;
+      -ms-animation-iteration-count: infinite;
+      -ms-animation-timing-function: linear;
+}
+
+@-webkit-keyframes spin {
+      from {
+        -webkit-transform:rotate(0deg);
+      }
+      
+      to {
+        -webkit-transform:rotate(360deg);
+      }
+
+}
+
+/*
+  *Styling for the shake dancer class to move in a shake
+*/
+.shakeDancer {
+    width: 100px;
+    height: 100px;
+    background-color: black;
+    position: absolute;
+    animation: shake .5s ease-in-out infinite;        
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+
+  20% {
+    transform: translateX(-10px);
+  }
+
+  40% {
+    transform: translateX(10px);
+  }
+
+  60% {
+    transform: translateX(-10px);
+  }
+
+  80% {
+    transform: translateX(10px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
 }
